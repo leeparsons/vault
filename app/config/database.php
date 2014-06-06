@@ -1,5 +1,29 @@
 <?php
 
+if (getenv('ENVIRONMENT') == 'local') {
+    $mysql = array(
+        'driver'    => 'mysql',
+        'host'      => 'localhost',
+        'database'  => 'passhole',
+        'username'  => 'root',
+        'password'  => 'organic',
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
+    );
+} else {
+    $mysql = array(
+        'driver'    => 'mysql',
+        'host'      => 'localhost',
+        'database'  => 'organic_passhole',
+        'username'  => 'pssho',
+        'password'  => 'Dql51w5&',
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
+    );
+}
+
 return array(
 
 	/*
@@ -52,16 +76,7 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'passhole',
-			'username'  => 'root',
-			'password'  => 'organic',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-		),
+		'mysql' => $mysql,
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
