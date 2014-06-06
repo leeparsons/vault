@@ -1,0 +1,1 @@
+<a href="/dashboard/record/{{ record.id }}/edit" class="btn btn-primary">Edit</a>

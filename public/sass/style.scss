@@ -1,0 +1,151 @@
+html, body {
+    margin:0;
+    padding:0;
+    font-family:"Helvetica Neue", Helvetica, sans-serif;
+}
+
+a, p, span, div {
+    color:#5a5a5a;
+}
+
+input, textarea {
+    outline:none;
+}
+
+input[type="submit"] {
+    color:#5A5A5A;
+    background:url(http://www.theorganicagency.com/img/button_right.png) no-repeat right center;
+    width:auto;
+    padding-right:35px;
+    height:31px;
+    border:0;
+    outline:none;
+    cursor:pointer;
+}
+
+.top-bar {
+    background:rgba(0, 0, 0, 0.7);
+    float:left;
+    width:100%;
+    height:auto;
+    margin-bottom:20px;
+
+    ul {
+        width:950px;
+        margin:auto;
+        padding:0;
+        list-style-type: none;
+
+        li {
+            float:left;
+            height:35px;
+
+            a {
+                color: #d0d0d0;
+                line-height: 35px;
+                transition: color 0.5s;
+
+                &:hover {
+                    color:#FFFFFF;
+                }
+            }
+        }
+
+    }
+
+}
+
+.logo {
+    a {
+        text-decoration:none;
+    }
+
+    span {
+        display:block;
+        padding:20px 0;
+    }
+}
+
+.logo, .login {
+    margin:auto;
+    width:350px;
+    display:block;
+    text-align:center;
+}
+
+.login {
+    input[type="text"],
+    input[type="password"]{
+        width:100%;
+        padding:7px;
+    }
+    input {
+        margin-bottom:10px;
+    }
+}
+
+.error {
+    background: #ff585f;
+    border:1px solid #b74047;
+    color:#000000;
+    padding:7px 0;
+    border-radius:7px;
+    margin-bottom:10px;
+}
+
+.main-wrap {
+    margin:auto;
+    display:block;
+    width:900px;
+}
+
+.control-sidebar {
+    width:100%;
+    float:left;
+    box-shadow:0px 0px 7px #7d7d7d;
+    border:1px solid #a9a9a9;
+    padding:20px;
+    margin-bottom:20px;
+    form {
+        float:right;
+    }
+    input[type="search"] {
+        padding:3px;
+        border-radius:7px;
+    }
+}
+
+.main {
+    float:left;
+    width:100%;
+    ul {
+        float:left;
+        list-style-type:none;
+        margin:0 2% 0 0;
+        padding:0;
+        width:40%;
+        li {
+            min-height:30px;
+            line-height:30px;
+            padding:0 5px;
+            display:block;
+
+            &:nth-child(odd) {
+                background: #cecf44;
+            }
+
+            a {
+                display:block;
+                width:100%;
+                height:auto;
+            }
+        }
+    }
+
+    .record-content {
+        width:58%;
+        float:right;
+    }
+
+
+}
