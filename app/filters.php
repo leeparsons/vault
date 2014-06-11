@@ -35,7 +35,13 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+
+	if (Request::path() != '/' && (Auth::guest() || !Auth::check())) {
+        return Redirect::to('/');
+    } elseif (Auth::check() && (Request::path() == '' || Request::path() == '/')) {
+        return Redirect::to('/dashboard/');
+    }
+
 });
 
 
@@ -75,6 +81,6 @@ Route::filter('csrf', function()
 {
 	if (Session::token() != Input::get('_token'))
 	{
-        throw new Illuminate\Session\TokenMismatchException;
+        Redirect::to('/');
 	}
 });

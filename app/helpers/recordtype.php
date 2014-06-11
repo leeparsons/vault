@@ -30,9 +30,13 @@ class HelperRecordType {
 
             $id = property_exists($field, 'id')?$field->id:$name;
 
+            $html[] = '<div class="form-group">';
+
             $html[] = '<label for="' . $id . '">' . $field->label . '</label>';
 
             $html[] = $this->generateHtml($field, $name, $value, $id);
+
+            $html[] = '</div>';
         }
 
 
@@ -109,9 +113,6 @@ class HelperRecordType {
 
         switch ($field->type) {
             default:
-
-                echo $field->type;
-
                 $html = $this->{'render' . ucfirst($field->type)}($name, $value, $id);
                 break;
         }
@@ -121,16 +122,16 @@ class HelperRecordType {
 
     private function renderText($name, $value, $id)
     {
-        return '<input type="text" name="field[' . $name . ']" id="' . $id . '" value="' . $value . '">';
+        return '<input type="text" name="field[' . $name . ']" id="' . $id . '" value="' . $value . '" class="form-control">';
     }
 
     private function renderTextarea($name, $value, $id)
     {
-        return '<textarea name="field[' . $name . ']" id="' . $id . '">' . $value . '</textarea>';
+        return '<textarea name="field[' . $name . ']" id="' . $id . '" class="form-control">' . $value . '</textarea>';
     }
 
     private function renderPassword($name, $value, $id)
     {
-        return '<input type="password" name="field[' . $name . ']" id="' . $id . '" value="' . $value . '" >';
+        return '<input type="password" name="field[' . $name . ']" id="' . $id . '" value="' . $value . '" class="form-control">';
     }
 }

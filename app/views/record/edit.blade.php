@@ -6,16 +6,25 @@
 @stop
 
 @section('content')
-{{ Form::open(array('url'   =>  'dashboard/record/' . ($record->id?:-1) . '/edit', 'action' => 'RecordController@save')) }}
-<header>
-    <h1 class="editable">{{ $record->record_name }} {{ Form::text('record_name', Input::old('record_name')?:$record->record_name) }}</h1>
-    <span class="editable">{{ $record->record_type }} {{ Form::hidden('record_type', $record->record_type) }}</span>
-</header>
+<section class="edit-record container-fluid">
+    {{ Form::open(array('url'   =>  'dashboard/record/' . ($record->id?:-1) . '/edit', 'action' => 'RecordController@save')) }}
+    <header class="row show-grid">
+        <h1 class="col-xs-12">Editing: {{ $record->record_name }}</h1>
+        <span class="record-type col-xs-12 bg-primary">{{ $record->record_type }} {{ Form::hidden('record_type', $record->record_type) }}</span>
+    </header>
 
-<article>
-     {{ App::make('HelperRecordType')->renderFields($record) }}
-</article>
+    <article class="row show-grid">
+        <fieldset>
+            <div class="form-group">
+                {{ Form::text('record_name', Input::old('record_name')?:$record->record_name, array('class'    =>  'form-control')) }}
+            </div>
+        </fieldset>
+        <fieldset>
+            {{ App::make('HelperRecordType')->renderFields($record) }}
+        </fieldset>
+    </article>
 
-{{ Form::submit('Save') }}
-{{ Form::close() }}
+    {{ Form::submit('Save') }}
+    {{ Form::close() }}
+</section>
 @stop

@@ -1,6 +1,7 @@
 <html>
 <head>
     {{ HTML::style('css/style.css') }}
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
 </head>
@@ -34,6 +35,9 @@
         @yield('content')
     </section>
 </div>
+<footer class="main-wrap">
+    <span>&copy; Copyright <?php echo date('Y') ?></span>
+</footer>
 
 </body>
 </html>

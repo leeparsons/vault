@@ -2,6 +2,8 @@
 
 class Record extends Eloquent {
 
+    protected $appends = array('record_type_slug');
+
     private $decoded_fields = array();
 
     private $salt = 'A5uZNPYu6s3JSpL9lcy3GrE8yhMLKr28';
@@ -37,6 +39,11 @@ class Record extends Eloquent {
 
     }
 
+    public function getRecordTypeSlugAttribute()
+    {
+        return Illuminate\Support\Str::lower(Illuminate\Support\Str::slug($this->record_type));
+    }
+
     public function getFields()
     {
 
@@ -55,6 +62,31 @@ class Record extends Eloquent {
         }
 
         return $this->decoded_fields;
+    }
+
+
+
+    /*
+     * decodes the json encoded string for the json response and slugs any fields
+     */
+    public function prepareForAngularData()
+    {
+        $this->fields = json_decode($this->fields);
+
+        $fields = array();
+
+        if ($this->fields) {
+            foreach ($this->fields as $field) {
+
+                if ($field->encrypted === true) {
+                    $field->value = $this->decryptValue($field->value);
+                }
+
+                $fields[] = $field;
+            }
+        }
+
+        $this->fields = $fields;
     }
 
     public function getFieldInputs()
@@ -76,12 +108,11 @@ class Record extends Eloquent {
         } else {
             //get the type as a related object
             $type = $this->recordType;
-            if (!is_null($type)) {
+
+            if (!is_null($type) && $type->count() > 0) {
                 $inputs = json_decode($type[0]->config);
             }
-
         }
-
 
         return $inputs;
 

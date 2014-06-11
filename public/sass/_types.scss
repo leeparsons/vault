@@ -1,0 +1,53 @@
+.record-content {
+    .record-type {
+        border:1px solid #c5c5c5;
+    }
+}
+
+.record-type {
+    padding:10px 0;
+    text-transform: capitalize;
+}
+
+
+
+.record-item {
+    color:#5a5a5a;
+
+    a {
+        color:inherit;
+
+        &:hover {
+            color:inherit;
+        }
+    }
+}
+
+
+.item-htpasswd {
+    background: #ca9939;
+    color:#FFFFFF;
+
+//    a {
+//        color:#FFFFFF;
+//    }
+}
+
+.item-software-license {
+    background: #428bca;
+    color:#FFFFFF;
+
+//    a {
+//        color:#FFFFFF;
+//    }
+
+}
+
+.item-server-login {
+    background: #cecf44;
+    color:#000000;
+//    a {
+//        color:#000000;
+//    }
+
+}

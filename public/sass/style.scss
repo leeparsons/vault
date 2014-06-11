@@ -20,6 +20,7 @@ input[type="submit"] {
     height:31px;
     border:0;
     outline:none;
+    float:right;
     cursor:pointer;
 }
 
@@ -119,6 +120,7 @@ input[type="submit"] {
     float:left;
     width:100%;
     ul {
+
         float:left;
         list-style-type:none;
         margin:0 2% 0 0;
@@ -127,12 +129,15 @@ input[type="submit"] {
         li {
             min-height:30px;
             line-height:30px;
-            padding:0 5px;
+            padding:7px;
             display:block;
+            border:1px solid #c5c5c5;
+            margin:4px 0;
 
-            &:nth-child(odd) {
-                background: #cecf44;
-            }
+//            &:nth-child(odd) {
+//                background: #cecf44;
+//            }
+
 
             a {
                 display:block;
@@ -149,3 +154,20 @@ input[type="submit"] {
 
 
 }
+
+
+
+
+footer {
+    padding:50px 0 30px;
+}
+
+.show-grid {
+    margin-bottom:20px;
+}
+
+
+
+
+
+@import "types";

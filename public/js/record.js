@@ -31,7 +31,7 @@ recordViewer.controller('recordViewerController', function($scope, $http) {
     if (d.children.length > 0) {
         var id = d.children[0].getAttribute('data-id');
 
-        $http.get("/record/" + id + "/json/").success(function(response) {
+        $http.get("/record/" + id + "/json").success(function(response) {
             $scope.record_content = response;
         }).error(function(data, status, headers, config) {
             $scope.record_content = {};
@@ -39,7 +39,7 @@ recordViewer.controller('recordViewerController', function($scope, $http) {
 
         $scope.updateRecordContent = function(record_id) {
 
-            $http.get("/record/" + record_id + "/json/").success(function(response) {
+            $http.get("/record/" + record_id + "/json").success(function(response) {
                 $scope.record_content = response;
             }).error(function(data, status, headers, config) {
                 return $scope.record_content = [{record_name:"Oops! There was an error retrieving the selected record: " + data}];

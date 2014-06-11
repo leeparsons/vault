@@ -9,21 +9,11 @@ class UserController extends BaseController {
 
     public function actionIndex()
     {
-
-        if (Auth::check()) {
-            return Redirect::intended('dashboard');
-        }
         return View::make('users/login');
     }
 
     public function authenticate()
     {
-
-        if (Auth::check()) {
-            return Redirect::intended('dashboard');
-        }
-
-
         if ($this->isPostRequest()) {
 
             $validator = $this->getLoginValidator();

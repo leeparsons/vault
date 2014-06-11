@@ -27,9 +27,10 @@ Your search for {{ $search }} returned {{ count($records) }} result(s).
 @endif
 <div class="list-wrap" ng-app="recordViewer" ng-controller="recordViewerController">
 
+
     <ul class="wrap" id="record_list">
         @foreach ($records as $i => $record)
-        <li class="item-{{ $i%2==0?'odd':'even' }}" data-id="{{ $record->id }}">
+        <li class="item-{{ $record->record_type_slug }} record-item" data-id="{{ $record->id }}">
             <a href="" ng-click="updateRecordContent({{ $record->id }});">{{ $record->record_name }}</a>
         </li>
         @endforeach

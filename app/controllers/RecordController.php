@@ -7,17 +7,6 @@
 
 class RecordController extends BaseController {
 
-    public function __construct()
-    {
-
-        $this->beforeFilter(function() {
-            if (!Auth::check()) {
-                return Redirect::action('UserController@actionIndex');
-            }
-        });
-
-    }
-
     public function actionSearch()
     {
         $s = Input::get('s');
@@ -45,7 +34,7 @@ class RecordController extends BaseController {
     public function actionList()
     {
 
-        $records = Record::get();
+        $records = Record::orderBy('record_name')->get();
 
         return View::make('record/list', array('records' =>  $records));
 

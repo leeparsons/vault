@@ -18,11 +18,9 @@
 
     @if (count($record->getFields()))
     @foreach ($record->getFields() as $id => $field)
-
     <div class="row">
-        {{ $id}}: {{ $field->value }}
+        {{ $id}}: <pre>{{ $field->value }}</pre>
     </div>
-
     @endforeach
     @endif
 </article>
