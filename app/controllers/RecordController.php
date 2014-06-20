@@ -64,19 +64,30 @@ class RecordController extends BaseController {
 
         if (intval($id) > 0) {
             if ($record = Record::find($id)) {
-                if ($record->canEdit()) {
-                    return View::make('record/edit', array('record'   =>  $record));
-                }
+                return View::make('record/edit', array('record'   =>  $record));
             }
         } elseif (is_null($id)) {
-            if (App::make('record')->canEdit()) {
-                return View::make('record/add');
-            }
+            return View::make('record/add');
         }
 
         return View::make('record/404');
     }
 
+
+    public function actionDeleteRecord($id = null)
+    {
+        $record = App::make('record')->find($id);
+
+        if ($record) {
+            $record->delete();
+            return Redirect::to('/dashboard')->with(array('info' => 'Record Deleted'));
+        } else {
+
+            return Redirect::to('/dashboard')->withErrors(array('msg' => 'Oops! Looks like this record has already been deleted!'));
+
+        }
+
+    }
 
     public function actionSaveRecord($id = null)
     {

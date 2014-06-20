@@ -12,50 +12,6 @@ input, textarea {
     outline:none;
 }
 
-input[type="submit"] {
-    color:#5A5A5A;
-    background:url(http://www.theorganicagency.com/img/button_right.png) no-repeat right center;
-    width:auto;
-    padding-right:35px;
-    height:31px;
-    border:0;
-    outline:none;
-    float:right;
-    cursor:pointer;
-}
-
-.top-bar {
-    background:rgba(0, 0, 0, 0.7);
-    float:left;
-    width:100%;
-    height:auto;
-    margin-bottom:20px;
-
-    ul {
-        width:950px;
-        margin:auto;
-        padding:0;
-        list-style-type: none;
-
-        li {
-            float:left;
-            height:35px;
-
-            a {
-                color: #d0d0d0;
-                line-height: 35px;
-                transition: color 0.5s;
-
-                &:hover {
-                    color:#FFFFFF;
-                }
-            }
-        }
-
-    }
-
-}
-
 .logo {
     a {
         text-decoration:none;
@@ -85,13 +41,10 @@ input[type="submit"] {
     }
 }
 
-.error {
-    background: #ff585f;
-    border:1px solid #b74047;
-    color:#000000;
-    padding:7px 0;
-    border-radius:7px;
-    margin-bottom:10px;
+
+
+.bg-danger, .bg-info {
+    padding:5px;
 }
 
 .main-wrap {
@@ -107,9 +60,11 @@ input[type="submit"] {
     border:1px solid #a9a9a9;
     padding:20px;
     margin-bottom:20px;
+
     form {
-        float:right;
+        margin-bottom:0;
     }
+
     input[type="search"] {
         padding:3px;
         border-radius:7px;
@@ -156,7 +111,9 @@ input[type="submit"] {
 }
 
 
-
+.btn-new {
+    margin-right:20px;
+}
 
 footer {
     padding:50px 0 30px;
@@ -171,3 +128,4 @@ footer {
 
 
 @import "types";
+@import "menu";

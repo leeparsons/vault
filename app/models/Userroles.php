@@ -7,11 +7,17 @@
  
 class Userroles extends Eloquent {
 
+    CONST VIEWER = 1;
+    CONST EDITOR = 2;
+    CONST ADMIN = 3;
+
     protected $table = 'user_2_roles';
 
-    public function roles()
+    public function role()
     {
-        $this->belongsTo('Role');
+        $b = $this->belongsTo('Role', 'role_id');
+
+        return $b;
     }
 
 }

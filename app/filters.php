@@ -44,6 +44,44 @@ Route::filter('auth', function()
 
 });
 
+Route::filter('auth_privileged', function() {
+
+    if (Request::path() != '/' && (Auth::guest() || !Auth::check())) {
+        return Redirect::to('/');
+    } elseif (Auth::check() && (Request::path() == '' || Request::path() == '/')) {
+        return Redirect::to('/dashboard/');
+    }
+
+    $privileged = Auth::user()->canEdit();
+
+    if (false === $privileged) {
+
+        if (\Illuminate\Support\Facades\URL::previous() == Request::root()) {
+            return Redirect::to('/dashboard/')->withErrors(array('msg', 'Not authorised to complete the request'));
+        }
+
+        return Redirect::back()->withErrors(array('msg', 'Not authorised to complete the request'));
+    }
+
+});
+
+Route::filter('auth_admin', function() {
+
+    if (!Auth::User()->isAdmin()) {
+        return Redirect::to('/dashboard')->withErrors(array('msg' => 'Not authorised to complete the request'));
+    }
+
+
+});
+
+Route::filter('update_user', function() {
+
+    if (($user = Auth::user())) {
+        $user->last_active = new DateTime;
+        $user->save();
+    }
+
+});
 
 Route::filter('auth.basic', function()
 {

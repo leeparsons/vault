@@ -10,12 +10,21 @@
 }
 
 
+li.record-item {
+    opacity:1;
+    transition:opacity 0.25s;
+    &:hover {
+        opacity:0.65;
+    }
+}
 
 .record-item {
-    color:#5a5a5a;
+    color: #2e2e2e;
 
     a {
+
         color:inherit;
+
 
         &:hover {
             color:inherit;
@@ -45,9 +54,22 @@
 
 .item-server-login {
     background: #cecf44;
-    color:#000000;
 //    a {
 //        color:#000000;
 //    }
 
+}
+
+.item-weblogin {
+    background: #FFFFFF;
+}
+
+.item-database {
+    background: #cf7126;
+    color:#FFFFFF;
+}
+
+.item-dns-account {
+    background: #2e2e2e;
+    color:#FFFFFF;
 }

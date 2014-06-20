@@ -1,0 +1,35 @@
+.top-bar {
+    background:rgba(0, 0, 0, 0.7);
+    float:left;
+    width:100%;
+    height:auto;
+    margin-bottom:20px;
+
+    ul {
+        width:950px;
+        margin:auto;
+        padding:0;
+        list-style-type: none;
+
+        li {
+            float:left;
+            height:35px;
+
+            a {
+                color: #d0d0d0;
+                line-height: 35px;
+                transition: color 0.5s;
+                display:block;
+                height:100%;
+                text-align:center;
+
+
+                &:hover {
+                    color:#FFFFFF;
+                }
+            }
+        }
+
+    }
+
+}

@@ -12,7 +12,7 @@
 {{ Form::text('username', Input::old('username'), array('placeholder' =>  'username')) }}
 {{ Form::label('password', 'Password') }}
 {{ Form::password('password') }}
-{{ Form::submit('Login') }}
+{{ Form::submit('Login', array('class'  => 'btn btn-success')) }}
 {{ Form::close() }}
 </div>
 @stop

@@ -24,7 +24,7 @@
         </fieldset>
     </article>
 
-    {{ Form::submit('Save') }}
+    {{ Form::submit('Save', array('class'   =>  'btn btn-success')) }}
     {{ Form::close() }}
 </section>
 @stop

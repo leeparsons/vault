@@ -7,14 +7,26 @@
 </head>
 @yield('body_tag', '<body>')
 @show
+
 <nav class="top-bar">
     @if (Auth::check())
-    <ul>
-        <li>
+    <ul class="row">
+        <li class="col-xs-1">
             <a href="/logout">Logout</a>
         </li>
+        <li class="col-xs-2">
+            <a href="/dashboard">Vault Records</a>
+        </li>
+        @if (Auth::User()->isAdmin())
+        <li class="col-xs-2">
+            <a href="/dashboard/users">Manage Users</a>
+        </li>
+        @endif
     </ul>
     @endif
+    @section('top_nav')
+
+    @show
 </nav>
 
 <header class="logo">
@@ -36,7 +48,7 @@
     </section>
 </div>
 <footer class="main-wrap">
-    <span>&copy; Copyright <?php echo date('Y') ?></span>
+    <span>&copy; Copyright {{ date('Y') }}</span>
 </footer>
 
 </body>

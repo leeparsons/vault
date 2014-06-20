@@ -128,6 +128,7 @@ class Record extends Eloquent {
 
     /*
      * Encrypts a value - in one common place
+     * @param string $value
      */
     public function encryptValue($value)
     {
